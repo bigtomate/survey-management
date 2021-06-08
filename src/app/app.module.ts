@@ -9,7 +9,13 @@ import { SurveyItemComponent } from './surveys/survey-list/survey-item/survey-it
 import { SurveyDetailComponent } from './surveys/survey-detail/survey-detail.component';
 import { HeaderComponent } from './header/header.component';
 import { SurveyService } from './surveys/survey.service';
-import { QuestionItemComponent } from './surveys/questions/question-item/question-item.component'
+import { QuestionItemComponent } from './surveys/questions/question-item/question-item.component';
+import { AnswerItemComponent } from './surveys/questions/answers/answer-item/answer-item.component';
+import { EditPopupComponent } from './edit-popup/edit-popup.component';
+import { MatDialogModule} from '@angular/material/dialog'
+import {NoopAnimationsModule} from '@angular/platform-browser/animations'
+import { FormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -20,13 +26,20 @@ import { QuestionItemComponent } from './surveys/questions/question-item/questio
     SurveyDetailComponent,
     HeaderComponent,
     QuestionItemComponent,
+    AnswerItemComponent,
+    EditPopupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    MatDialogModule,
+    NoopAnimationsModule,
+    FormsModule,
+    MatFormFieldModule
   ],
   providers: [SurveyService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[EditPopupComponent]
 })
 export class AppModule { }

@@ -11,11 +11,9 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
-     <ul class="list-group">
-       <li class="list-group-item" *ngFor="let question of surveyDetail.questions">
-         <app-question-item [question] = "question" ></app-question-item>
-       </li>
-     </ul>
+
+         <app-question-item *ngFor="let question of surveyDetail.questions" [question] = "question" ></app-question-item>
+   
     </div>
   </div>
 </div>
