@@ -1,7 +1,21 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      
+     <h2> {{surveyDetail.title}}</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+     description : {{surveyDetail.description}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+     <ul class="list-group">
+       <li class="list-group-item" *ngFor="let question of surveyDetail.questions">
+         <app-question-item [question] = "question" ></app-question-item>
+       </li>
+     </ul>
     </div>
   </div>
 </div>

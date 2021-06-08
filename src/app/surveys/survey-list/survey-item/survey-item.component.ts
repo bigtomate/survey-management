@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Survey } from '../../survey.model';
+import { SurveyService } from '../../survey.service';
 
 @Component({
   selector: 'app-survey-item',
@@ -8,14 +9,10 @@ import { Survey } from '../../survey.model';
 })
 export class SurveyItemComponent implements OnInit {
   @Input('s') survey : Survey;
-  @Output('selectedSurvey') selectedSurvey = new EventEmitter<Survey>();
-  constructor() { }
+
+  constructor(private surveyService : SurveyService ) { }
 
   ngOnInit(): void {
-  }
 
-  onSelectItem(survey : Survey) {
-   this.selectedSurvey.emit();
   }
-
 }
