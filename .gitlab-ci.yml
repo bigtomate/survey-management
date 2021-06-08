@@ -1,0 +1,38 @@
+stages:
+  - build 
+  - deploy
+
+image:
+  node
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+variables:
+  PRODUCTION_DOMAIN : xini-surveys-prod.surge.sh
+  STAGE_DOMAIN: xini-surveys.surge.sh
+
+build:
+  stage: build
+  only:
+    - master
+  script:
+    - echo $CI_COMMIT_SHORT_SHA
+    - npm install
+    - npm install -g @angular/cli
+    - ng build 
+  artifacts:
+    paths:
+      - ./dist
+
+deploy: 
+  stage: deploy
+  only:
+    - master    
+  script:
+    - npm install --global surge
+    - test -f ./dist/survey-management/index.html
+    - echo $?
+    - surge --project ./dist/survey-management --domain $STAGE_DOMAIN
