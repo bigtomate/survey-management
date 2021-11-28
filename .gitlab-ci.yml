@@ -3,7 +3,7 @@ stages:
   - deploy
 
 image:
-  mhart/alpine-node:14 node --version v14.16.1
+  mhart/alpine-node:14.17.3
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
