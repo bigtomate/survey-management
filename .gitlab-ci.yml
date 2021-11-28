@@ -3,7 +3,7 @@ stages:
   - deploy
 
 image:
-  node@sha256:d1b3088a17b138b9b6b23838943d932b7fef4fe80300c4e775c7e541d39b512f
+  mhart/alpine-node:14 node --version v14.16.1
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
