@@ -15,8 +15,7 @@ import { EditAnswerItemComponent } from './components/edit-answer-item/edit-answ
     CommonModule,
     TranslateModule.forChild(),
     MatButtonModule,
-    MatDialogModule
-  ],
+    MatDialogModule  ],
   exports: [DialogComponent, ButtonComponent],
   declarations: [DialogComponent, ButtonComponent, EditAnswerItemComponent],
   entryComponents: [DialogComponent]
