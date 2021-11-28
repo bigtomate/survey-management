@@ -3,7 +3,7 @@ stages:
   - deploy
 
 image:
-  node sha256:d1b3088a17b138b9b6b23838943d932b7fef4fe80300c4e775c7e541d39b512f
+  node@sha256:e36cf1bb8719551220ba8c3ee1583881e79ad040803570e0849b00b8fe009153
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
