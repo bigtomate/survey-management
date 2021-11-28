@@ -1,0 +1,49 @@
+
+<div class="col-xs-12">
+<div class="row"><button class="btn btn-danger pull-right" (click)="onClose()">X</button></div>
+
+<div class="row">
+ <h4 class="pull-left">{{ data.content }}</h4>
+<div class="pull-right">
+  <label for="questionType">question type</label>
+  <select name="questionType" id="questionType">
+    <option *ngFor="let opt of data.types" [value]="opt" [selected]="opt === data.type">{{opt}}</option>
+  </select>
+</div>
+</div>
+
+
+<div class="pull-left">
+
+  <hr>
+<!--   <p class="list-group-item-text" *ngFor="let answer of question.answers">
+    <label><input type="radio"> {{answer.content}}</label>
+  </p>-->
+
+  <p class="list-group-item-text">
+    <app-edit-answer-item [answers]="data.answers"></app-edit-answer-item>
+
+  </p>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

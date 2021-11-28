@@ -16,7 +16,7 @@ export class SurveyService {
 
   survey1Questions : Question[] = [
     this.questionOne,
-    new Question(1, 2, 'how do you find follow sunscreen brand', 'c', [])
+    new Question(1, 2, 'how do you like the follow sunscreen brand', 'c', [])
   ];
 
 

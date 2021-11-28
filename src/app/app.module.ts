@@ -11,12 +11,14 @@ import { HeaderComponent } from './header/header.component';
 import { SurveyService } from './surveys/survey.service';
 import { QuestionItemComponent } from './surveys/questions/question-item/question-item.component';
 import { AnswerItemComponent } from './surveys/questions/answers/answer-item/answer-item.component';
-import { EditPopupComponent } from './edit-popup/edit-popup.component';
 import { MatDialogModule} from '@angular/material/dialog'
 import {NoopAnimationsModule} from '@angular/platform-browser/animations'
 import { FormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {DialogModule} from './dialog/dialog.module'
+import { DialogComponent } from './dialog/components/dialog/dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,20 +28,19 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     SurveyDetailComponent,
     HeaderComponent,
     QuestionItemComponent,
-    AnswerItemComponent,
-    EditPopupComponent
+    AnswerItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    MatDialogModule,
-    NoopAnimationsModule,
-    FormsModule,
-    MatFormFieldModule
+   DialogModule.forRoot(),
+
+    BrowserAnimationsModule,
+
   ],
   providers: [SurveyService],
   bootstrap: [AppComponent],
-  entryComponents:[EditPopupComponent]
+
 })
 export class AppModule { }

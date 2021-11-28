@@ -4,8 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { SurveyService } from '../../survey.service';
 import { Question } from '../question.model';
 import { MatDialog } from '@angular/material/dialog'
-import { EditPopupComponent } from 'src/app/edit-popup/edit-popup.component';
-
+import {DialogService} from '../../../dialog/services/dialog.service'
+import {DialogFactoryService} from '../../../dialog/services/dialog-factory.service'
 @Component({
   selector: 'app-question-item',
   templateUrl: './question-item.component.html',
@@ -15,24 +15,25 @@ export class QuestionItemComponent implements OnInit {
 
   @Input('question') question : Question;
 
+  dialog: DialogService;
+
   constructor(private route: ActivatedRoute,
      private surveyService:SurveyService,
-     private dialog : MatDialog) { }
+
+     private dialogFactoryService: DialogFactoryService) { }
 
   ngOnInit(): void {
+
   }
 
+  dispatchDialog(question : Question) {
+    this.openDialog(question);
+  }
 
-
-  openDialog(question : Question) {
- /*    const dialogRef = this.dialog.open(EditPopupComponent, {
-      width: '250px',
-      data: {question: question}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-
-    }); */
+  closeDialog() {
+    this.dialog.close();
+  }
+  private openDialog(question: Question): void {
+    this.dialog = this.dialogFactoryService.open(question);
   }
 }

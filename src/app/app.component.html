@@ -8,4 +8,16 @@
       <router-outlet></router-outlet>
     </div>
   </div>
+ <button >edit</button>
 </div>
+
+<ng-template #firstDialogTemplate>
+  <h2>1. This is the first template</h2>
+  <app-dialog-button
+    color="primary"
+    (click)="changeDialogTemplate(secondDialogTemplate)"
+    >Go to Second Teamplate</app-dialog-button
+  >
+</ng-template>
+
+
