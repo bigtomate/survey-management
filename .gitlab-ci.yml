@@ -1,11 +1,9 @@
 stages:
-  - build 
+  - build
   - deploy
 
 image:
-  node
-
-cache:
+  node sha256:d1b3088a17b138b9b6b23838943d932b7fef4fe80300c4e775c7e541d39b512fcache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - node_modules/
@@ -22,15 +20,15 @@ build:
     - echo $CI_COMMIT_SHORT_SHA
     - npm install
     - npm install -g @angular/cli
-    - ng build 
+    - ng build
   artifacts:
     paths:
       - ./dist
 
-deploy: 
+deploy:
   stage: deploy
   only:
-    - master    
+    - master
   script:
     - npm install --global surge
     - test -f ./dist/survey-management/index.html
