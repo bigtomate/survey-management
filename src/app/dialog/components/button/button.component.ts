@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
   selector: 'app-dialog-button',
   styleUrls: ['button.component.scss'],
   template: `
-    <button mat-raised-button [color]="color">
+    <button mat-raised-button [color]="color" >
       <ng-content></ng-content>
     </button>
   `
