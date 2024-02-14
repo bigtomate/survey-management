@@ -1,8 +1,9 @@
 
-  <div class="form-check" [answers]="answers" *ngFor="let answer of answers">
+  <div class="form-check" [answers]="answers" *ngFor="let answer of answers" [questionType]="questionType">
 
-    <input type="radio" class="form-check-input">
-    <label class="form-check-label disabled">{{answer.content}}</label>
+    <input type="checkbox" *ngIf="questionType === 'a'" class="form-check-input">
+    <input type="radio" *ngIf="questionType === 'c'" class="form-check-input">
+    <label class="form-check-label disabled">&nbsp;&nbsp;{{answer.content}}</label>
 
 </div>
 

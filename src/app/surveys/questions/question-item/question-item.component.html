@@ -8,7 +8,7 @@
       <label><input type="radio"> {{answer.content}}</label>
     </p>-->
     <p class="list-group-item-text">
-      <app-answer-item [answers]="question.answers"></app-answer-item>
+      <app-answer-item [answers]="question.answers" [questionType]="question.type"></app-answer-item>
     </p>
 
   </div>

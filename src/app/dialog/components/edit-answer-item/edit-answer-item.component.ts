@@ -10,6 +10,8 @@ export class EditAnswerItemComponent implements OnInit {
 
   @Input("answers")
   answers : Answer[];
+    @Input('questionType')
+    questionType:string;
   constructor() { }
 
   ngOnInit(): void {

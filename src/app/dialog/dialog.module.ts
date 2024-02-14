@@ -17,8 +17,7 @@ import { EditAnswerItemComponent } from './components/edit-answer-item/edit-answ
     MatButtonModule,
     MatDialogModule  ],
   exports: [DialogComponent, ButtonComponent],
-  declarations: [DialogComponent, ButtonComponent, EditAnswerItemComponent],
-  entryComponents: [DialogComponent]
+  declarations: [DialogComponent, ButtonComponent, EditAnswerItemComponent]
 })
 export class DialogModule {
   static forRoot() : ModuleWithProviders<DialogModule> {
