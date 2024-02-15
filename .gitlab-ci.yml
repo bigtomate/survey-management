@@ -3,7 +3,7 @@ stages:
   - deploy
 
 image:
-  alpine:3.17
+  node:current-alpine3.19
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
