@@ -5,17 +5,12 @@
     "node": "18.x.x"
   },
   "scripts": {
-    "prepare": "npm run gcp-build",
-    "pretest": "npm run gcp-build",
-    "test": "c8 mocha -p -j 2 test/*.test.js --exit",
-    "lint": "gts lint",
-    "start": "node ./index.js",
-    "deploy": "gcloud app deploy",
-    "clean": "gts clean",
-    "compile": "tsc -p .",
-    "fix": "gts fix",
-    "build": "tsc -p .",
-    "gcp-build": "tsc -p ."
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "test:headless": "ng test --browsers ChromeHeadless"
   },
   "private": true,
   "dependencies": {

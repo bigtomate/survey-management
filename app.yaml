@@ -1,1 +1,20 @@
-runtime: nodejs18
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+  - url: /
+    static_files: dist/survey-management/index.html
+    upload: dist/survey-management/index.html
+  - url: /
+    static_dir: dist/survey-management
+
+skip_files:
+  - e2e/
+  - node_modules/
+  - src/
+  - ^(.*/)?\..*$
+  - ^(.*/)?.*\.json$
+  - ^(.*/)?.*\.md$
+  - ^(.*/)?.*\.yaml$
+  - ^LICENSE
