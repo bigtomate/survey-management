@@ -1,19 +1,14 @@
 stages:
   - build
-  - deploy
+  - deploy_production
 
-image:
-  node:current-alpine3.19
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - node_modules/
 
-variables:
-  PRODUCTION_DOMAIN : xini-surveys-prod.surge.sh
-  STAGE_DOMAIN: xini-surveys.surge.sh
-
 build:
+  image: node:current-alpine3.19
   stage: build
   only:
     - master
@@ -26,12 +21,13 @@ build:
     paths:
       - ./dist
 
-deploy:
-  stage: deploy
+deploy_production:
+  image: google/cloud-sdk:alpine
+  stage: deploy_production
+  environment: Production
   only:
     - master
   script:
-    - npm install --global surge
-    - test -f ./dist/survey-management/index.html
-    - echo $?
-    - surge --project ./dist/survey-management --domain $STAGE_DOMAIN
+    - echo $SERVICE_ACCOUNT > /tmp/$CI_PIPELINE_ID.json
+    - gcloud auth activate-service-account --key-file /tmp/$CI_PIPELINE_ID.json
+    - gcloud --quiet --project $PROJECT_ID app deploy app.yaml

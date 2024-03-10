@@ -1,6 +1,4 @@
 runtime: nodejs18
-api_version: 1
-threadsafe: yes
 
 handlers:
   - url: /
@@ -8,13 +6,3 @@ handlers:
     upload: dist/survey-management/index.html
   - url: /
     static_dir: dist/survey-management
-
-skip_files:
-  - e2e/
-  - node_modules/
-  - src/
-  - ^(.*/)?\..*$
-  - ^(.*/)?.*\.json$
-  - ^(.*/)?.*\.md$
-  - ^(.*/)?.*\.yaml$
-  - ^LICENSE
