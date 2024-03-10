@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "serve:local": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "test:headless": "ng test --browsers ChromeHeadless"
+    "test:headless": "ng test --browsers ChromeHeadless",
+    "start": "node ./dist/index.js",
+    "gcp-build": "tsc -p ."
   },
   "private": true,
   "dependencies": {
