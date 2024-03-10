@@ -12,6 +12,4 @@ import { Component, Input } from '@angular/core';
 export class ButtonComponent {
   @Input() color = 'default';
   @Input() disabled = false;
-
-
 }

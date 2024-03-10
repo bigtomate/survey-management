@@ -16,7 +16,7 @@ export class SurveyDetailComponent implements OnInit {
     private surveyService : SurveyService) { }
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.params['id'];
+    const id = + this.route.snapshot.params['id'];
     this.surveyDetail = this.surveyService.getSurveyById(id);
   }
 }
